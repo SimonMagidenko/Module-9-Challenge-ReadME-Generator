@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import fs from "fs/promises";
 
-let { title, description, installation, usage, license, contributors, tests, username, email } = await inquirer
+let { title, description, installation, usage, license, guidelines, contributors, tests, username, email } = await inquirer
     .prompt([
         {
 
@@ -32,6 +32,14 @@ let { title, description, installation, usage, license, contributors, tests, use
             choices: ['Apache 2.0', 'Boost Software 1.0', 'BSD 3-Clause', 'BSD 2-Clause', 'MIT'],
 
         },
+
+        {
+            type: 'editor',
+            name: 'guidelines',
+            message: "If you have contribution guidelines, please enter them in the editor (press 'i' > Input your text > press 'esc' > type :wq > move to next prompt)"
+        },
+
+
         {
             type: 'editor',
             name: 'contributors',
@@ -40,7 +48,7 @@ let { title, description, installation, usage, license, contributors, tests, use
         {
             type: 'input',
             name: 'tests',
-            message: 'Go the extra mile and write tests for your application. Then provide examples on how to run them here.',
+            message: 'If you would like to add tests to run for your application, please input them here. ',
 
 
         },
@@ -72,6 +80,7 @@ ${description}
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
+- [How to Contribute](#guidelines)
 - [Contributors](#contributors)
 - [Tests](#tests)
 - [Questions](#questions)
@@ -85,6 +94,9 @@ ${usage}
 ## License 
 - This application is covered under the ${license} license
 
+## How to Contribute
+If you would like to contribute, please refer to the instructions below:
+${guidelines}
 
 ## Contributors
 ${contributors}
@@ -94,11 +106,11 @@ ${tests}
 
 ## Questions 
 - If you would like to see more of my work, please feel free to refer to my GitHub (https://github.com/${username}).
-- If you have any questions regarding the project, please reach out to me via email ${email}
+- If you have any questions regarding the project, please reach out to me via email: ${email}
 `
 
 
-fs.writeFile("GENERATEREADME.md", readmeText)
+fs.writeFile("SampleReadME.md", readmeText)
 
 
 function generateLicense() {
