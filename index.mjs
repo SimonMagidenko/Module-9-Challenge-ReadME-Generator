@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import fs from "fs/promises";
 
-let { title, description, installation, usage, license, contributors, tests, questions } = await inquirer
+let { title, description, installation, usage, license, contributors, tests, username, email } = await inquirer
     .prompt([
         {
 
@@ -15,15 +15,15 @@ let { title, description, installation, usage, license, contributors, tests, que
             message: "Write a description of your project",
         },
         {
-            type: 'input',
+            type: 'editor',
             name: 'installation',
-            message: "What are the steps required to install your project? Provide a step-by-step installation process of how to get environment running.",
+            message: "What are the steps required to install your project? Provide a step-by-step installation process of how to get environment running. (press 'i' > Input your text > press 'esc' > type :wq > move to next prompt)",
         },
 
         {
-            type: 'input',
+            type: 'editor',
             name: 'usage',
-            message: "Provide instructions and examples for usage",
+            message: "Provide step-by-step instructions and examples for usage. (press 'i' > Input your text > press 'esc' > type :wq > move to next prompt)",
         },
         {
             type: 'list',
@@ -33,9 +33,9 @@ let { title, description, installation, usage, license, contributors, tests, que
 
         },
         {
-            type: 'input',
+            type: 'editor',
             name: 'contributors',
-            message: 'Who contributed to this project?',
+            message: "Who contributed to this project? (press 'i' > Input your text > press 'esc' > type :wq > move to next prompt)"
         },
         {
             type: 'input',
@@ -47,20 +47,25 @@ let { title, description, installation, usage, license, contributors, tests, que
 
         {
             type: 'input',
-            name: 'questions',
-            message: 'if you have any questions please contact me at (INSERT GITHUB URL HERE)',
+            name: 'username',
+            message: 'Please enter your GitHub username here',
+        },
 
-
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Please enter your email here',
         },
     ])
 
 
 
 let readmeText = `
-# ${title}
+# ${title}   
+${generateLicense(license)}
 
 
-## Project Description
+## Description
 ${description}
 
 ## Installation 
@@ -70,7 +75,7 @@ ${installation}
 ${usage}
 
 ## License 
-${generateLicense(license)}
+
 
 ## Contributors
 ${contributors}
@@ -79,7 +84,8 @@ ${contributors}
 ${tests}
 
 ## Questions 
-${questions}
+- If you would like to see more of my work, please feel free to refer to my GitHub (https://github.com/${username}.
+- If you have any questions regarding the project, please reach out to me via email ${email}
 `
 
 
@@ -97,3 +103,4 @@ function generateLicense() {
         return "[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)"
     }
 }
+
