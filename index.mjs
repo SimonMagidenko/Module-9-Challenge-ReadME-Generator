@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import fs from "fs/promises";
 
-let { description, license } = await inquirer
+let { title, description, installation, usage, license, contributors, tests, questions } = await inquirer
     .prompt([
         {
 
@@ -34,7 +34,7 @@ let { description, license } = await inquirer
         },
         {
             type: 'input',
-            name: 'Contributors',
+            name: 'contributors',
             message: 'Who contributed to this project?',
         },
         {
@@ -56,13 +56,31 @@ let { description, license } = await inquirer
 
 
 
-let readmeText = `## Project Description
+let readmeText = `
+# ${title}
+
+
+## Project Description
 ${description}
 
+## Installation 
+${installation}
+
+## Usage
+${usage}
+
+## License 
 ${generateLicense(license)}
 
-### A third - level heading`
+## Contributors
+${contributors}
 
+## Tests
+${tests}
+
+## Questions 
+${questions}
+`
 
 
 fs.writeFile("GENERATEREADME.md", readmeText)
