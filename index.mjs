@@ -29,7 +29,7 @@ let { title, description, installation, usage, license, contributors, tests, use
             type: 'list',
             name: 'license',
             message: 'What license do you need?',
-            choices: ['Apache 2.0', 'Boost Software 1.0', 'BSD 3-Clause', 'BSD 2-Clause'],
+            choices: ['Apache 2.0', 'Boost Software 1.0', 'BSD 3-Clause', 'BSD 2-Clause', 'MIT'],
 
         },
         {
@@ -68,6 +68,14 @@ ${generateLicense(license)}
 ## Description
 ${description}
 
+## Table Of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributors](#contributors)
+- [Tests](#tests)
+- [Questions](#questions)
+
 ## Installation 
 ${installation}
 
@@ -85,7 +93,7 @@ ${contributors}
 ${tests}
 
 ## Questions 
-- If you would like to see more of my work, please feel free to refer to my GitHub (https://github.com/${username}.
+- If you would like to see more of my work, please feel free to refer to my GitHub (https://github.com/${username}).
 - If you have any questions regarding the project, please reach out to me via email ${email}
 `
 
@@ -100,7 +108,10 @@ function generateLicense() {
         return "[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)"
     } else if (license === "BSD 3-Clause") {
         return "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)"
-    } else {
+    } else if (license === "MIT") {
+        return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+    }
+    else {
         return "[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)"
     }
 }
