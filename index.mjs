@@ -75,6 +75,7 @@ ${installation}
 ${usage}
 
 ## License 
+- This application is covered under the ${license} license
 
 
 ## Contributors
