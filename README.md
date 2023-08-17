@@ -15,11 +15,23 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 ## Installation
 
-1. Clone the Repository:
-   Open your terminal and navigate to the directory where you want to store the application. Then, use the following command to clone the repository:
+### 1. Clone the Repository:
 
-   `git clone https://github.com/your-username/your-repository.git
-`
+Open your terminal and navigate to the directory where you want to store the application. Then, use the following command to clone the repository:
+
+`git clone https://github.com/SimonMagidenko/Module-9-Challenge-ReadME-Generator.git`
+
+### 2. Navigate to the Application Directory:
+
+Change your current working directory to the cloned repository's directory:
+
+`cd your-repository`
+
+### 3. Install Dependencies:
+
+Install the most updated version of inquirer once inside your working directory:
+
+`npm i inquirer`
 
 ## Usage
 
